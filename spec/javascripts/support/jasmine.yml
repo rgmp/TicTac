@@ -1,0 +1,10 @@
+src_files:
+ - app/main.js
+
+stylesheets:
+ - stylesheets/**/*.css
+
+spec_files:
+ - '**/*[sS]pec.js'
+
+spec_dir: spec/javascripts
