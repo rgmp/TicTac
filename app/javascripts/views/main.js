@@ -1,7 +1,12 @@
 var TicTac = {
   Views: {},
   Collections: {},
-  Models: {}
+  Models: {},
+  Turn:'X',
+  GameOver:false,
+  WinningLocs:[	[ '00','10','20' ],[ '01','11','21' ],[ '02','12','22' ],
+  				[ '00','01','02' ],[ '10','11','12' ],[ '20','21','22' ],
+  				[ '00','11','22' ],[ '20','11','02' ] ]
 }
 
 
@@ -21,13 +26,19 @@ var TicTac = {
 //});
 
 TicTac.initialize = function(){
-
+	TicTac.Cells = new this.Collections.BoardCells([ 	new this.Models.Cell({location:'00'}),
+													new this.Models.Cell({location:'10'}),
+													new this.Models.Cell({location:'20'}),
+													new this.Models.Cell({location:'01'}),
+													new this.Models.Cell({location:'11'}),
+													new this.Models.Cell({location:'21'}),
+													new this.Models.Cell({location:'02'}),
+													new this.Models.Cell({location:'12'}),
+													new this.Models.Cell({location:'22'}) ]);
 }
-
-
 $(document).ready(function() {
-  TicTac.initialize();
-  var appView = new TicTac.Views.Game();
+	var appView = new TicTac.Views.Game();
+	TicTac.initialize();
 });
 
 
